@@ -23,6 +23,10 @@ function styles() {
 		.pipe(sass({
 			outputStyle: 'expanded'
 		})).on("error", notify.onError())
+		.pipe(cssunit({
+			type: 'px-to-rem',
+			rootSize: 16
+		}))
 		.pipe(autoprefixer(['last 15 versions']))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('app/css'))
