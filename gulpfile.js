@@ -6,12 +6,7 @@ const gulp = require('gulp'),
 	cssunit = require('gulp-css-unit'),
 	notify = require("gulp-notify");
 
-// Сервер и автообновление страницы Browsersync
-// gulp.task('browser-sync', function () {
-// 	browserSync.init({
-// 		proxy: "localhost/oop-php/"
-// 	});
-// });
+
 
 function server() {
 	browserSync.init({
@@ -21,18 +16,6 @@ function server() {
 	browserSync.watch('app/**/*.*', browserSync.reload);
 }
 
-
-// gulp.task('sass', function () {
-// 	return gulp.src('app/sass/**/*.sass')
-// 		.pipe(sass({
-// 			outputStyle: 'expand'
-// 		}).on("error", notify.onError()))
-// 		.pipe(autoprefixer(['last 15 versions']))
-// 		.pipe(gulp.dest('app/css'))
-// 		.pipe(browserSync.reload({
-// 			stream: true
-// 		}));
-// });
 
 function styles() {
 	return gulp.src('app/sass/main.sass')
@@ -48,6 +31,14 @@ function styles() {
 		}));
 }
 
+
+//scripts
+
+function scripts() {
+	return gulp.src('./node_modules/jquery/dist/jquery.min.js')
+		.pipe(gulp.dest('./app/js/'));
+}
+
 //gulp watch
 
 
@@ -56,14 +47,12 @@ function watch() {
 	gulp.watch('app/**/*.php', browserSync.reload);
 }
 
-// gulp.task('watch', ['sass', 'browser-sync'], function () {
-// 	gulp.watch('app/sass/**/*.sass', ['sass']);
-// 	gulp.watch('app/**/*.php', browserSync.reload);
-// });
+
 
 // gulp.task('default', ['watch']);
 
 gulp.task('default', gulp.series(
+	scripts,
 	styles,
 	gulp.parallel(watch, server)
 ));

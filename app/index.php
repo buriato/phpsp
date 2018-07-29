@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Title</title>
+	<title>OOP PHP Webformyself</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-	<style>body { opacity: 0; overflow-x: hidden; } html { background-color: #fff; }</style>
 	<link rel="stylesheet" href="css/main.css">
 </head>
 <body>
